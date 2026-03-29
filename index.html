@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Katha AnkiReddy — DevOps Engineer</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- Animated Background -->
+  <canvas id="particles"></canvas>
+
   <!-- Navigation -->
   <nav id="navbar">
     <div class="nav-container">
@@ -19,6 +22,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#security">Security &amp; DR</a></li>
         <li><a href="#tools">Tools</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -28,49 +32,79 @@
   <!-- Hero Section -->
   <section id="hero">
     <div class="hero-content">
+      <div class="hero-badge">Available for opportunities</div>
       <p class="hero-greeting">Hello, I'm</p>
       <h1 class="hero-name">Katha AnkiReddy</h1>
-      <h2 class="hero-title">DevOps Engineer</h2>
+      <div class="hero-title-wrapper">
+        <h2 class="hero-title">DevOps Engineer</h2>
+        <span class="hero-pipe">|</span>
+        <h2 class="hero-title accent-purple">Cloud Architect</h2>
+        <span class="hero-pipe">|</span>
+        <h2 class="hero-title accent-orange">SRE</h2>
+      </div>
       <p class="hero-subtitle">
-        Building resilient cloud infrastructure &amp; automating everything in between.
+        Building resilient cloud infrastructure, automating everything,
+        and securing systems at scale.
       </p>
       <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-number">6+</span>
+        <div class="stat glass-card">
+          <span class="stat-number" data-count="6">0</span>
+          <span class="stat-suffix">+</span>
           <span class="stat-label">Years Experience</span>
         </div>
-        <div class="stat">
-          <span class="stat-number">5+</span>
+        <div class="stat glass-card">
+          <span class="stat-number" data-count="5">0</span>
+          <span class="stat-suffix">+</span>
           <span class="stat-label">Years Cloud &amp; DevOps</span>
         </div>
-        <div class="stat">
-          <span class="stat-number">2</span>
-          <span class="stat-label">Cloud Platforms</span>
+        <div class="stat glass-card">
+          <span class="stat-number" data-count="15">0</span>
+          <span class="stat-suffix">+</span>
+          <span class="stat-label">DevOps Tools</span>
         </div>
       </div>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+        <a href="#contact" class="btn btn-primary">
+          <span>Get In Touch</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
         <a href="#experience" class="btn btn-secondary">View Experience</a>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="terminal-window">
+      <div class="terminal-window glass-card">
         <div class="terminal-header">
           <span class="dot red"></span>
           <span class="dot yellow"></span>
           <span class="dot green"></span>
-          <span class="terminal-title">ankireddy@devops</span>
+          <span class="terminal-title">ankireddy@devops ~ </span>
         </div>
-        <div class="terminal-body">
-          <p><span class="prompt">$</span> kubectl get pods --all-namespaces</p>
-          <p class="output">All systems running ✓</p>
-          <p><span class="prompt">$</span> terraform plan</p>
-          <p class="output">Infrastructure up-to-date ✓</p>
-          <p><span class="prompt">$</span> docker ps</p>
-          <p class="output">12 containers healthy ✓</p>
-          <p><span class="prompt">$</span> <span class="cursor">_</span></p>
+        <div class="terminal-body" id="terminalBody">
+          <div class="term-line">
+            <span class="prompt">❯</span>
+            <span class="cmd">kubectl get pods -A</span>
+          </div>
+          <p class="output success">✓ All 24 pods running across 3 namespaces</p>
+          <div class="term-line">
+            <span class="prompt">❯</span>
+            <span class="cmd">terraform plan</span>
+          </div>
+          <p class="output success">✓ Infrastructure up-to-date — 0 to add, 0 to change</p>
+          <div class="term-line">
+            <span class="prompt">❯</span>
+            <span class="cmd">trivy image --severity HIGH,CRITICAL app:latest</span>
+          </div>
+          <p class="output success">✓ 0 vulnerabilities found — image is clean</p>
+          <div class="term-line">
+            <span class="prompt">❯</span>
+            <span class="cursor">_</span>
+          </div>
         </div>
       </div>
+      <div class="floating-badge badge-1">AWS</div>
+      <div class="floating-badge badge-2">K8s</div>
+      <div class="floating-badge badge-3">GCP</div>
+      <div class="floating-badge badge-4">Docker</div>
     </div>
   </section>
 
@@ -81,47 +115,41 @@
       <div class="about-content">
         <div class="about-text">
           <p>
-            I'm a <strong>DevOps Engineer</strong> currently working at
-            <strong>Hashedin by Deloitte</strong> in Hyderabad. With over
+            I'm a <strong>DevOps Engineer</strong> currently at
+            <strong>Hashedin by Deloitte</strong>, Hyderabad, with over
             <strong>6 years of IT experience</strong> and
-            <strong>5+ years specializing in Cloud &amp; DevOps</strong>, I bring
-            deep expertise in building, automating, and securing modern
-            infrastructure.
+            <strong>5+ years in Cloud &amp; DevOps</strong>. I specialize in
+            building automated, secure, and resilient infrastructure at scale.
           </p>
           <p>
-            My journey started as a <strong>System Administrator</strong>, where I
-            built a solid foundation in infrastructure management. I gradually
+            Starting as a <strong>System Administrator</strong>, I built a strong
+            foundation in Linux, networking, and infrastructure management. I
             transitioned into <strong>Cloud Engineering</strong> with AWS and GCP,
-            and eventually into the <strong>DevOps</strong> space — where I found
-            my passion for CI/CD pipelines, container orchestration, Infrastructure
-            as Code, and security-first practices.
+            and then into <strong>DevOps</strong> — mastering CI/CD, container
+            orchestration, Infrastructure as Code, and DevSecOps practices.
           </p>
           <p>
-            I'm passionate about bridging the gap between development and
-            operations, enabling teams to ship faster and more reliably.
+            I'm passionate about implementing <strong>security-first DevOps</strong>,
+            disaster recovery strategies, and enabling teams to
+            deliver software faster without compromising on reliability.
           </p>
         </div>
         <div class="about-cards">
-          <div class="info-card">
+          <div class="info-card glass-card">
             <div class="info-icon">📍</div>
-            <div>
-              <h4>Location</h4>
-              <p>Hyderabad, India</p>
-            </div>
+            <div><h4>Location</h4><p>Hyderabad, India</p></div>
           </div>
-          <div class="info-card">
+          <div class="info-card glass-card">
             <div class="info-icon">🏢</div>
-            <div>
-              <h4>Current Role</h4>
-              <p>DevOps Engineer @ Hashedin by Deloitte</p>
-            </div>
+            <div><h4>Current Role</h4><p>DevOps Engineer @ Hashedin by Deloitte</p></div>
           </div>
-          <div class="info-card">
+          <div class="info-card glass-card">
             <div class="info-icon">☁️</div>
-            <div>
-              <h4>Cloud Platforms</h4>
-              <p>AWS &amp; Google Cloud Platform</p>
-            </div>
+            <div><h4>Cloud Platforms</h4><p>AWS &amp; Google Cloud Platform</p></div>
+          </div>
+          <div class="info-card glass-card">
+            <div class="info-icon">🔐</div>
+            <div><h4>Focus Area</h4><p>DevSecOps &amp; Disaster Recovery</p></div>
           </div>
         </div>
       </div>
@@ -134,24 +162,25 @@
       <h2 class="section-title">Experience</h2>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-dot current"></div>
-          <div class="timeline-content">
+          <div class="timeline-dot current pulse"></div>
+          <div class="timeline-content glass-card">
             <div class="timeline-badge">Current</div>
             <h3>DevOps Engineer</h3>
             <h4>Hashedin by Deloitte — Hyderabad</h4>
             <p class="timeline-duration">3.9 Years</p>
             <ul>
               <li>Designing and managing CI/CD pipelines using Jenkins &amp; GitHub Actions</li>
-              <li>Container orchestration with Kubernetes &amp; Docker</li>
-              <li>Infrastructure as Code with Terraform &amp; Ansible</li>
-              <li>Implementing security scanning with Trivy, SonarQube, Mend &amp; Contrast</li>
+              <li>Container orchestration with Kubernetes &amp; Docker in production</li>
+              <li>Infrastructure as Code with Terraform &amp; Ansible across multi-cloud</li>
+              <li>DevSecOps: Trivy, SonarQube, Mend &amp; Contrast integrated into pipelines</li>
               <li>Cloud infrastructure management on AWS &amp; GCP</li>
+              <li>DR planning with multi-region failover, backup automation &amp; RTO/RPO compliance</li>
             </ul>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-content">
+          <div class="timeline-content glass-card">
             <h3>System Admin / Cloud Engineer</h3>
             <h4>Bitcot Technologies — Chennai</h4>
             <p class="timeline-duration">2.11 Years</p>
@@ -160,6 +189,7 @@
               <li>Migration of workloads to AWS &amp; GCP cloud environments</li>
               <li>Transition from traditional sysadmin to cloud-first approach</li>
               <li>Automation of routine operational tasks</li>
+              <li>Implemented backup strategies and disaster recovery procedures</li>
             </ul>
           </div>
         </div>
@@ -172,52 +202,217 @@
     <div class="container">
       <h2 class="section-title">Core Skills</h2>
       <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">⚙️</div>
+        <div class="skill-card glass-card">
+          <div class="skill-icon-wrap"><span class="skill-icon">⚙️</span></div>
           <h3>CI/CD &amp; Automation</h3>
           <p>Building robust pipelines that automate build, test, and deployment workflows for rapid and reliable delivery.</p>
-          <div class="skill-tags">
-            <span>Jenkins</span><span>GitHub Actions</span><span>Git</span>
-          </div>
+          <div class="skill-tags"><span>Jenkins</span><span>GitHub Actions</span><span>Git</span></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">☁️</div>
+        <div class="skill-card glass-card">
+          <div class="skill-icon-wrap"><span class="skill-icon">☁️</span></div>
           <h3>Cloud Infrastructure</h3>
-          <p>Architecting and managing scalable, cost-efficient cloud environments across multiple providers.</p>
-          <div class="skill-tags">
-            <span>AWS</span><span>GCP</span><span>IAM</span><span>VPC</span>
-          </div>
+          <p>Architecting scalable, cost-efficient, multi-region cloud environments with high availability.</p>
+          <div class="skill-tags"><span>AWS</span><span>GCP</span><span>IAM</span><span>VPC</span></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🐳</div>
+        <div class="skill-card glass-card">
+          <div class="skill-icon-wrap"><span class="skill-icon">🐳</span></div>
           <h3>Containers &amp; Orchestration</h3>
           <p>Containerizing applications and managing production-grade Kubernetes clusters for microservices.</p>
-          <div class="skill-tags">
-            <span>Docker</span><span>Kubernetes</span><span>Helm</span>
-          </div>
+          <div class="skill-tags"><span>Docker</span><span>Kubernetes</span><span>Helm</span></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">📜</div>
+        <div class="skill-card glass-card">
+          <div class="skill-icon-wrap"><span class="skill-icon">📜</span></div>
           <h3>Infrastructure as Code</h3>
-          <p>Defining infrastructure declaratively to enable version-controlled, repeatable, and auditable environments.</p>
-          <div class="skill-tags">
-            <span>Terraform</span><span>Ansible</span>
-          </div>
+          <p>Declarative infrastructure enabling version-controlled, repeatable, and auditable environments.</p>
+          <div class="skill-tags"><span>Terraform</span><span>Ansible</span><span>CloudFormation</span></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🔒</div>
-          <h3>Security &amp; Compliance</h3>
-          <p>Integrating security scanning into CI/CD pipelines for shift-left vulnerability detection.</p>
-          <div class="skill-tags">
-            <span>Trivy</span><span>SonarQube</span><span>Mend</span><span>Contrast</span>
-          </div>
+        <div class="skill-card glass-card">
+          <div class="skill-icon-wrap"><span class="skill-icon">🔒</span></div>
+          <h3>DevSecOps</h3>
+          <p>Shift-left security integrated into every pipeline stage — from code commit to production deploy.</p>
+          <div class="skill-tags"><span>Trivy</span><span>SonarQube</span><span>Mend</span><span>Contrast</span></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">🖥️</div>
+        <div class="skill-card glass-card">
+          <div class="skill-icon-wrap"><span class="skill-icon">🖥️</span></div>
           <h3>System Administration</h3>
-          <p>Deep Linux fundamentals, networking, and infrastructure troubleshooting from years of hands-on sysadmin work.</p>
-          <div class="skill-tags">
-            <span>Linux</span><span>Networking</span><span>Monitoring</span>
+          <p>Deep Linux fundamentals, networking, and infrastructure troubleshooting from years of hands-on work.</p>
+          <div class="skill-tags"><span>Linux</span><span>Networking</span><span>Monitoring</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security & DR Standards Section -->
+  <section id="security">
+    <div class="container">
+      <h2 class="section-title">Security &amp; DR Standards</h2>
+      <p class="section-subtitle">Production-grade security and disaster recovery practices I implement across every project.</p>
+
+      <div class="standards-block">
+        <div class="standards-header">
+          <div class="standards-icon">🛡️</div>
+          <h3>Security Standards &amp; DevSecOps</h3>
+        </div>
+        <div class="standards-grid">
+          <div class="standard-card glass-card">
+            <div class="standard-level critical">CRITICAL</div>
+            <h4>Container Image Scanning</h4>
+            <p>Every container image scanned with <strong>Trivy</strong> for HIGH/CRITICAL CVEs before deployment. Zero-tolerance policy for critical vulnerabilities.</p>
+            <div class="standard-tools"><span>Trivy</span><span>Docker</span><span>ECR</span></div>
+          </div>
+          <div class="standard-card glass-card">
+            <div class="standard-level critical">CRITICAL</div>
+            <h4>SAST &amp; Code Quality</h4>
+            <p><strong>SonarQube</strong> quality gates enforced on every PR. Code must pass security hotspot review, zero bugs, and maintain >80% coverage.</p>
+            <div class="standard-tools"><span>SonarQube</span><span>Quality Gates</span></div>
+          </div>
+          <div class="standard-card glass-card">
+            <div class="standard-level high">HIGH</div>
+            <h4>SCA — Dependency Scanning</h4>
+            <p><strong>Mend</strong> continuously monitors open-source dependencies for known vulnerabilities and license compliance risks.</p>
+            <div class="standard-tools"><span>Mend</span><span>SBOM</span><span>License Audit</span></div>
+          </div>
+          <div class="standard-card glass-card">
+            <div class="standard-level high">HIGH</div>
+            <h4>IAST — Runtime Security</h4>
+            <p><strong>Contrast Security</strong> agents monitor applications at runtime, detecting vulnerabilities in real traffic and blocking exploits.</p>
+            <div class="standard-tools"><span>Contrast</span><span>IAST</span><span>RASP</span></div>
+          </div>
+          <div class="standard-card glass-card">
+            <div class="standard-level medium">MEDIUM</div>
+            <h4>Secret Management</h4>
+            <p>No secrets in code. All credentials managed via vault solutions, environment injection, and rotated on schedule.</p>
+            <div class="standard-tools"><span>AWS Secrets Manager</span><span>Vault</span></div>
+          </div>
+          <div class="standard-card glass-card">
+            <div class="standard-level medium">MEDIUM</div>
+            <h4>Network &amp; IAM Policies</h4>
+            <p>Least-privilege IAM, K8s network policies, pod security standards, and VPC segmentation. Zero-trust architecture enforced.</p>
+            <div class="standard-tools"><span>IAM</span><span>NetworkPolicy</span><span>VPC</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pipeline Security Flow -->
+      <div class="pipeline-flow">
+        <h3 class="pipeline-title">Secure CI/CD Pipeline Flow</h3>
+        <div class="pipeline-steps">
+          <div class="pipeline-step glass-card">
+            <div class="pipe-num">1</div>
+            <div class="pipe-icon">📝</div>
+            <h4>Code Commit</h4>
+            <p>Pre-commit hooks, linting, secret scanning</p>
+          </div>
+          <div class="pipeline-connector"></div>
+          <div class="pipeline-step glass-card">
+            <div class="pipe-num">2</div>
+            <div class="pipe-icon">🔍</div>
+            <h4>SAST Scan</h4>
+            <p>SonarQube analysis &amp; quality gate</p>
+          </div>
+          <div class="pipeline-connector"></div>
+          <div class="pipeline-step glass-card">
+            <div class="pipe-num">3</div>
+            <div class="pipe-icon">📦</div>
+            <h4>SCA Scan</h4>
+            <p>Mend dependency &amp; license check</p>
+          </div>
+          <div class="pipeline-connector"></div>
+          <div class="pipeline-step glass-card">
+            <div class="pipe-num">4</div>
+            <div class="pipe-icon">🐳</div>
+            <h4>Image Scan</h4>
+            <p>Trivy CVE scan on container image</p>
+          </div>
+          <div class="pipeline-connector"></div>
+          <div class="pipeline-step glass-card">
+            <div class="pipe-num">5</div>
+            <div class="pipe-icon">🧪</div>
+            <h4>IAST Test</h4>
+            <p>Contrast runtime analysis in staging</p>
+          </div>
+          <div class="pipeline-connector"></div>
+          <div class="pipeline-step glass-card">
+            <div class="pipe-num">6</div>
+            <div class="pipe-icon">🚀</div>
+            <h4>Deploy</h4>
+            <p>Canary / Blue-Green to production</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disaster Recovery -->
+      <div class="standards-block">
+        <div class="standards-header">
+          <div class="standards-icon">🔄</div>
+          <h3>Disaster Recovery Standards</h3>
+        </div>
+        <div class="dr-grid">
+          <div class="dr-card glass-card">
+            <div class="dr-tier tier-1">Tier 1 — Mission Critical</div>
+            <div class="dr-metrics">
+              <div class="dr-metric"><span class="metric-label">RTO</span><span class="metric-value">&lt; 15 min</span></div>
+              <div class="dr-metric"><span class="metric-label">RPO</span><span class="metric-value">&lt; 1 min</span></div>
+            </div>
+            <ul>
+              <li>Multi-region active-active deployment</li>
+              <li>Real-time database replication (synchronous)</li>
+              <li>Automated failover with health checks</li>
+              <li>Global load balancing with DNS failover</li>
+            </ul>
+          </div>
+          <div class="dr-card glass-card">
+            <div class="dr-tier tier-2">Tier 2 — Business Critical</div>
+            <div class="dr-metrics">
+              <div class="dr-metric"><span class="metric-label">RTO</span><span class="metric-value">&lt; 1 hour</span></div>
+              <div class="dr-metric"><span class="metric-label">RPO</span><span class="metric-value">&lt; 15 min</span></div>
+            </div>
+            <ul>
+              <li>Active-passive with warm standby</li>
+              <li>Asynchronous database replication</li>
+              <li>Automated backup every 15 minutes</li>
+              <li>Infrastructure as Code for rapid rebuild</li>
+            </ul>
+          </div>
+          <div class="dr-card glass-card">
+            <div class="dr-tier tier-3">Tier 3 — Standard</div>
+            <div class="dr-metrics">
+              <div class="dr-metric"><span class="metric-label">RTO</span><span class="metric-value">&lt; 4 hours</span></div>
+              <div class="dr-metric"><span class="metric-label">RPO</span><span class="metric-value">&lt; 1 hour</span></div>
+            </div>
+            <ul>
+              <li>Pilot light / cold standby setup</li>
+              <li>Scheduled snapshots and backups</li>
+              <li>Terraform for environment re-provisioning</li>
+              <li>Documented runbooks and DR playbooks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- DR Practices -->
+      <div class="dr-practices">
+        <h3 class="pipeline-title">DR Practices I Follow</h3>
+        <div class="practices-grid">
+          <div class="practice-item glass-card">
+            <span class="practice-icon">📋</span>
+            <h4>DR Runbooks</h4>
+            <p>Documented, tested, and version-controlled runbooks for every failure scenario</p>
+          </div>
+          <div class="practice-item glass-card">
+            <span class="practice-icon">🧪</span>
+            <h4>Chaos Engineering</h4>
+            <p>Regular game days simulating zone/region failures to validate recovery procedures</p>
+          </div>
+          <div class="practice-item glass-card">
+            <span class="practice-icon">💾</span>
+            <h4>Backup Automation</h4>
+            <p>Automated cross-region backups with retention policies and restore verification</p>
+          </div>
+          <div class="practice-item glass-card">
+            <span class="practice-icon">📊</span>
+            <h4>Monitoring &amp; Alerting</h4>
+            <p>Multi-layer observability with automated incident response and escalation</p>
           </div>
         </div>
       </div>
@@ -229,20 +424,20 @@
     <div class="container">
       <h2 class="section-title">Tech Stack</h2>
       <div class="tools-grid">
-        <div class="tool-item"><div class="tool-name">AWS</div></div>
-        <div class="tool-item"><div class="tool-name">GCP</div></div>
-        <div class="tool-item"><div class="tool-name">Kubernetes</div></div>
-        <div class="tool-item"><div class="tool-name">Docker</div></div>
-        <div class="tool-item"><div class="tool-name">Terraform</div></div>
-        <div class="tool-item"><div class="tool-name">Ansible</div></div>
-        <div class="tool-item"><div class="tool-name">Jenkins</div></div>
-        <div class="tool-item"><div class="tool-name">GitHub Actions</div></div>
-        <div class="tool-item"><div class="tool-name">Git</div></div>
-        <div class="tool-item"><div class="tool-name">Trivy</div></div>
-        <div class="tool-item"><div class="tool-name">SonarQube</div></div>
-        <div class="tool-item"><div class="tool-name">Mend</div></div>
-        <div class="tool-item"><div class="tool-name">Contrast</div></div>
-        <div class="tool-item"><div class="tool-name">Linux</div></div>
+        <div class="tool-item glass-card" data-category="cloud"><div class="tool-label">Cloud</div><div class="tool-name">AWS</div></div>
+        <div class="tool-item glass-card" data-category="cloud"><div class="tool-label">Cloud</div><div class="tool-name">GCP</div></div>
+        <div class="tool-item glass-card" data-category="container"><div class="tool-label">Container</div><div class="tool-name">Kubernetes</div></div>
+        <div class="tool-item glass-card" data-category="container"><div class="tool-label">Container</div><div class="tool-name">Docker</div></div>
+        <div class="tool-item glass-card" data-category="iac"><div class="tool-label">IaC</div><div class="tool-name">Terraform</div></div>
+        <div class="tool-item glass-card" data-category="iac"><div class="tool-label">IaC</div><div class="tool-name">Ansible</div></div>
+        <div class="tool-item glass-card" data-category="cicd"><div class="tool-label">CI/CD</div><div class="tool-name">Jenkins</div></div>
+        <div class="tool-item glass-card" data-category="cicd"><div class="tool-label">CI/CD</div><div class="tool-name">GitHub Actions</div></div>
+        <div class="tool-item glass-card" data-category="cicd"><div class="tool-label">VCS</div><div class="tool-name">Git</div></div>
+        <div class="tool-item glass-card" data-category="security"><div class="tool-label">Security</div><div class="tool-name">Trivy</div></div>
+        <div class="tool-item glass-card" data-category="security"><div class="tool-label">SAST</div><div class="tool-name">SonarQube</div></div>
+        <div class="tool-item glass-card" data-category="security"><div class="tool-label">SCA</div><div class="tool-name">Mend</div></div>
+        <div class="tool-item glass-card" data-category="security"><div class="tool-label">IAST</div><div class="tool-name">Contrast</div></div>
+        <div class="tool-item glass-card" data-category="os"><div class="tool-label">OS</div><div class="tool-name">Linux</div></div>
       </div>
     </div>
   </section>
@@ -252,22 +447,26 @@
     <div class="container">
       <h2 class="section-title">Career Journey</h2>
       <div class="journey-path">
-        <div class="journey-step">
+        <div class="journey-step glass-card">
           <div class="journey-icon">🖥️</div>
           <h3>System Admin</h3>
           <p>Started with foundational infrastructure &amp; server management</p>
         </div>
-        <div class="journey-arrow">→</div>
-        <div class="journey-step">
+        <div class="journey-arrow">
+          <svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h36M28 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="journey-step glass-card">
           <div class="journey-icon">☁️</div>
           <h3>Cloud Engineer</h3>
           <p>Transitioned to AWS &amp; GCP cloud platforms</p>
         </div>
-        <div class="journey-arrow">→</div>
-        <div class="journey-step">
+        <div class="journey-arrow">
+          <svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h36M28 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="journey-step glass-card active-step">
           <div class="journey-icon">🚀</div>
           <h3>DevOps Engineer</h3>
-          <p>Mastered CI/CD, IaC, containers &amp; security automation</p>
+          <p>CI/CD, IaC, containers, security &amp; DR automation</p>
         </div>
       </div>
     </div>
@@ -277,19 +476,17 @@
   <section id="contact">
     <div class="container">
       <h2 class="section-title">Get In Touch</h2>
-      <p class="contact-text">
-        Interested in collaborating or have a question? Feel free to reach out!
-      </p>
+      <p class="contact-text">Interested in collaborating or have a question? Feel free to reach out!</p>
       <div class="contact-links">
-        <a href="mailto:arkrgd@gmail.com" class="contact-card">
+        <a href="mailto:arkrgd@gmail.com" class="contact-card glass-card">
           <span class="contact-icon">✉️</span>
           <span>arkrgd@gmail.com</span>
         </a>
-        <a href="tel:+918500305009" class="contact-card">
+        <a href="tel:+918500305009" class="contact-card glass-card">
           <span class="contact-icon">📞</span>
           <span>+91 8500305009</span>
         </a>
-        <a href="https://www.linkedin.com/in/ankireddy-katha-023112239" target="_blank" rel="noopener noreferrer" class="contact-card">
+        <a href="https://www.linkedin.com/in/ankireddy-katha-023112239" target="_blank" rel="noopener noreferrer" class="contact-card glass-card">
           <span class="contact-icon">💼</span>
           <span>LinkedIn</span>
         </a>
